@@ -3,38 +3,117 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Photography Portfolio</title>
+    <title>Reece Lopez Photography</title>
     <link rel="stylesheet" href="styleIndex.css">
 </head>
 <body>
+
     <!-- Header with logo, social links, and contact -->
     <header>
-        <div class="header-content">
-            <a href="index.html" class="logo">My Photography Portfolio</a> <!-- Logo linked to home -->
-            <nav>
-                <a href="https://www.instagram.com/lopez_reece" target="_blank"><img src="images/png-transparent-camera-instagram-social-media-instagram-logo-social-media-solid-icon-thumbnail.png" alt="Instagram" class="social-icon"></a>
-                <a href="https://www.facebook.com/rc.lpz" target="_blank"><img src="images/png-clipart-logo-social-media-facebook-brand-social-media-text-logo.png" alt="Facebook" class="social-icon"></a>
-                <a href="contact.html" class="contact-link">Contact</a>
-                <span class="bio">Your Bio: A brief description about yourself and your photography.</span>
-            </nav>
+        <!-- Left-aligned Menu Button -->
+        <div class="menu-button" onclick="openPanel()">
+            &#9776; Menu
+        </div>
+        
+        <!-- Centered Title -->
+        <div class="header-title">
+            REECE LOPEZ PHOTOGRAPHY
+        </div>
+
+        <!-- Right-aligned Social Icons -->
+        <div class="social-icons">
+            <a href="https://www.facebook.com/rc.lpz" target="_blank">
+                <img src="images/facebook-icon.png" alt="Facebook">
+            </a>
+            <a href="https://www.instagram.com/lopez_reece" target="_blank">
+                <img src="images/instagram-icon.png" alt="Instagram">
+            </a>
+            <a href="https://www.linkedin.com/in/yourusername" target="_blank">
+                <img src="images/linkedin-icon.png" alt="LinkedIn">
+            </a>
         </div>
     </header>
+    
+    <div class="background-section-one">
+    <!-- Left Panel for Bio, Contact, etc. -->
+    <div id="side-panel" class="side-panel">
+        <button class="close-btn" onclick="closePanel()">×</button>
+        <ul class="panel-tabs">
+            <li><a href="#bio">Bio</a></li>
+            <li><a href="#contact">Contact</a></li>
+            <!-- Add more links as needed -->
+        </ul>
+    </div>
 
+
+
+    <div class="carousel">
+        <div class="carousel-images">
+            <img src="images/photo1.jpg" alt="Highlight Photo 1">
+            <img src="images/photo2.jpg" alt="Highlight Photo 2">
+            <img src="images/photo3.jpg" alt="Highlight Photo 3">
+            <img src="images/photo4.jpg" alt="Highlight Photo 4">
+            <img src="images/photo6.jpg" alt="Highlight Photo 6">
+            <img src="images/photo7.jpg" alt="Highlight Photo 7">
+            <img src="images/photo8.jpg" alt="Highlight Photo 8">
+        </div>
+
+        <button class="prev" onclick="moveSlide(-1)">&#10094;</button>
+        <button class="next" onclick="moveSlide(1)">&#10095;</button>
+      </div>
+    </div>
+
+    <div class="background-section-two">
+    <!-- Projects Section (appears after scrolling) -->
     <div class="projects">
         <!-- Project 1 -->
         <a href="projects/project1.html" class="project">
             <img src="images/305434386_483111560491356_7247914243386662929_n.png" alt="Project 1 Featured Photo">
+            <span class="overlay-text">MISA</span>
         </a>
         
         <!-- Project 2 -->
-        <a href="LMProject.html" class="project">
+        <a href="projects/project2.html" class="project">
             <img src="images/LMpic.jpg" alt="Project 2 Featured Photo">
+            <span class="overlay-text">LM</span>
         </a>
         
         <!-- Project 3 -->
         <a href="projects/project3.html" class="project">
             <img src="images/received_628490302504490.jpeg" alt="Project 3 Featured Photo">
+            <span class="overlay-text">Personal</span>
         </a>
     </div>
+    </div>
+    <script src="script.js"></script>
+    <script>
+        // JavaScript for Menu Panel
+        function openPanel() {
+            document.getElementById("side-panel").style.width = "250px";
+        }
+
+        function closePanel() {
+            document.getElementById("side-panel").style.width = "0";
+        }
+
+        // Scroll-based header background change
+        window.onscroll = function() { changeHeaderOnScroll() };
+
+        function changeHeaderOnScroll() {
+            const header = document.querySelector('header');
+            const headerTitle = document.querySelector('.header-title');
+            
+            // When the user scrolls down at least 10px, make the header white
+            if (document.body.scrollTop > 10 || document.documentElement.scrollTop > 10) {
+                header.style.backgroundColor = "rgba(255, 255, 255, 1)"; // White background
+                header.style.color = "#333";
+                headerTitle.style.color = "#333" // Change text color to dark for contrast
+            } else {
+                header.style.backgroundColor = "rgba(255, 255, 255, 0)"; // Transparent background
+                header.style.color = "#fff"; 
+                headerTitle.style.color = "#fff";// Keep text white when transparent
+            }
+        }
+    </script>
 </body>
 </html>
