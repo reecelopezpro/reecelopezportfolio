@@ -42,42 +42,6 @@
         <img src="images/Compilation/LM/LM Week/P1013008.jpg" alt="Photo 8">
         <img src="images/Compilation/LM/LM Week/P1013027.jpg" alt="Photo 9">
     </div>
-    <script>
-    let scrollTimeout;
-    let isScrolling = false;
-
-    function smoothScroll() {
-        if (isScrolling) return;
-
-        isScrolling = true;
-        const scrollStep = 20; // Adjust this for smoothness (higher = faster, lower = smoother but slower)
-        const targetScroll = window.scrollY;
-        
-        function step() {
-            const distance = targetScroll - window.scrollY;
-            if (Math.abs(distance) < 1) {
-                isScrolling = false;
-                return;
-            }
-
-            window.scrollBy(0, distance / scrollStep);
-            requestAnimationFrame(step);
-        }
-
-        requestAnimationFrame(step);
-    }
-
-    window.addEventListener('wheel', () => {
-        clearTimeout(scrollTimeout);
-        scrollTimeout = setTimeout(smoothScroll, 10);
-    });
-
-    window.addEventListener('scroll', () => {
-        if (!isScrolling) {
-            clearTimeout(scrollTimeout);
-        }
-    });
-</script>
 
 </body>
 </html>
